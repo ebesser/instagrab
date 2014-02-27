@@ -5,14 +5,28 @@
   <%= f.submit "Post"%>
 <% end %>
 
+<h1>Followers</h1>
+<% if current_user.followers.any? %>
+  <% current_user.followers.each do |follower| %>
+  <li><%= follower.name %></li>
+  <% end %>
+<% end %>
+
+<h1>Following</h1>
+<% if current_user.followed_users.any? %>
+  <% current_user.followed_users.each do |followed| %>
+  <li><%= followed.name %></li>
+  <% end %>
+<% end %>
+
 <!-- time_ago_in_words is not working here for some reason, maybe use js to fix  -->
+<h1>Posts</h1>
 <% if current_user.contents.any? %>
   <p>Number of Posts: <%= current_user.contents.count  %></p>
   <% @content.each do |content| %>
     <li class="microposts">
         <%= content.url %>
-        <%= content.created_at %> ago
-
+        <%= content.created_at %>
     </li>
   <% end %>
 <% end %>

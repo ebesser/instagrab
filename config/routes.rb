@@ -7,6 +7,11 @@ Instagrab::Application.routes.draw do
 
     resources :contents, only: [:create, :destroy]
 
-
+    # followers/followed routes
+    resources :users do
+    member do
+      get :following, :followers
+    end
+  end
 
 end
