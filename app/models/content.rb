@@ -3,6 +3,4 @@ class Content < ActiveRecord::Base
   # Orders content in reverse chronological order
   default_scope -> { order('created_at DESC') }
 
-  include ActionView::Helpers::DateHelper
-
 end

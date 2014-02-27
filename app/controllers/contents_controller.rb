@@ -1,17 +1,22 @@
 class ContentsController < ApplicationController
   before_action :current_user, only: [:create, :destroy]
 
+  def index
+    contents = current_user.contents.all
+
+    contents = { contents: contents }
+    render json: contents
+  end
+
   def create
     @contents = current_user.contents.build(content_params)
-    if @contents.save
-      redirect_to root_url
-    else
-      redirect_to root_url
-    end
+    @contents.save
+    render json: @contents
   end
 
   def destroy
     @contents.destroy
+    render json: @contents
   end
 
   private
