@@ -1,0 +1,18 @@
+<p><%= current_user.name  %></p>
+<img style="height: 100px; width: 100px;" src=<%= current_user.image %>>
+<%= form_for(@contents) do |f| %>
+  <%= f.text_area :url, placeholder: "Compose new post..." %>
+  <%= f.submit "Post"%>
+<% end %>
+
+<!-- time_ago_in_words is not working here for some reason, maybe use js to fix  -->
+<% if current_user.contents.any? %>
+  <p>Number of Posts: <%= current_user.contents.count  %></p>
+  <% @content.each do |content| %>
+    <li class="microposts">
+        <%= content.url %>
+        <%= content.created_at %> ago
+
+    </li>
+  <% end %>
+<% end %>

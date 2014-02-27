@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Instagrab</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<!-- Put navigation here -->
+ <% if user_signed_in? %>
+   <p><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></p>
+  <% else %>
+  <% end %>
+
+<!-- End navigation here -->
+
+<p class=“notice”><%= notice %></p>
+<p class=“alert”><%= alert %></p>
+
+ 
+
+<%= yield %>
+
+</body>
+</html>
