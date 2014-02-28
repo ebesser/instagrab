@@ -7,7 +7,7 @@ Instagrab::Application.routes.draw do
 
     get '/contents' => 'contents#index'
 
-    resources :contents, only: [:create, :destroy]
+    resources :contents, only: [:create, :destroy, :new]
 
     # followers/followed routes
     resources :users do

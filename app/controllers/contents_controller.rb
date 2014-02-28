@@ -14,6 +14,10 @@ class ContentsController < ApplicationController
     render json: @contents
   end
 
+  def new
+    @contents = Content.new
+  end
+
   def destroy
     @contents.destroy
     render json: @contents

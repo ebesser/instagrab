@@ -1,3 +1,9 @@
+// For Handlebars to work?
+ _.templateSettings = {
+    interpolate: /\{\{\=(.+?)\}\}/g,
+    evaluate: /\{\{(.+?)\}\}/g
+};
+
  var Content = Backbone.Model.extend({
 
   delete: function(){
@@ -10,9 +16,9 @@ var ContentView = Backbone.View.extend({
   initialize: function(){
 
     this.render()
-    this.listenTo( content_list_view.collection, "remove", function(model){
-      model.destroy({
-        url: "/contents/"+model.id
+    this.listenTo( window.list, "remove", function(content){
+      content.destroy({
+        url: "/contents"
       });
     })
 
@@ -42,6 +48,7 @@ var ContentView = Backbone.View.extend({
 var ContentList = Backbone.Collection.extend({
 
   initialize: function () {
+  
     this.bind('all', function () {
      listView.render();
     })
@@ -55,7 +62,7 @@ var ContentList = Backbone.Collection.extend({
 var ContentListView = Backbone.View.extend({
   initialize: function(){
    
-    console.log(this.collection)
+    // console.log(this.collection)
     this.views = [];
 
   },
@@ -92,7 +99,7 @@ var FormView = Backbone.View.extend({
   },
 
   el: function(){
-    return $('.form_container')
+    return $('#form_container')
   },
 
  template: function(){
@@ -102,11 +109,12 @@ var FormView = Backbone.View.extend({
   },
 
   render: function(){
+
     this.$el.append(this.template());
   },
 
   events: {
-    "click .post_button" : "createContent"
+    "click #content_add_button" : "createContent"
   },
 
   createContent: function(e){
@@ -116,12 +124,12 @@ var FormView = Backbone.View.extend({
     window.list.create({
       url: $url
     });
-    console.log(window.list)
+    // console.log(window.list)
     this.resetInput();
   },
 
   resetInput: function(){
-    $('#contet_url').val("");
+    $('#content_url').val("");
   }
 })
 

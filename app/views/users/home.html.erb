@@ -1,16 +1,17 @@
 <%= javascript_include_tag "content" %>
-<%= javascript_include_tag "template" %>
 
+<!-- The rails way to render the form -->
+  <%#= form_for(@contents) do |f| %>
+  <%#= f.text_area :url, placeholder: "Compose new post..." %>
+  <%#= f.submit "Post"%>
+  <%# end %>
 
 <p><%= current_user.name  %></p>
 <img style="height: 100px; width: 100px;" src=<%= current_user.image %>>
 
 <div id="form_container">
-  <%= form_for(@contents) do |f| %>
-  <%= f.text_area :url, placeholder: "Compose new post..." %>
-  <%= f.submit "Post"%>
-<% end %>
-<div>
+
+</div>
 
 <h1>Followers</h1>
 <% if current_user.followers.any? %>
@@ -26,16 +27,17 @@
   <% end %>
 <% end %>
 
-<!-- time_ago_in_words is not working here for some reason, maybe use js to fix  -->
-<div id="content_list"> 
-  <h1>Posts</h1>
-<% if current_user.contents.any? %>
-  <p>Number of Posts: <%= current_user.contents.count  %></p>
-  <% @content.each do |content| %>
-    <li class="microposts">
-        <%= content.url %>
-        <%= content.created_at %>
-    </li>
-  <% end %>
-<% end %>
-</div>
+  <!-- <h1>Posts</h1> -->
+<%# if current_user.contents.any? %>
+  <!-- <p>Number of Posts:  -->
+    <%#= current_user.contents.count  %>
+  <!-- </p> -->
+  <%# @content.each do |content| %>
+    <!-- <li> -->
+        <%#= content.url %>
+        <%#= content.created_at %>
+        <!-- <button>Delete</button> -->
+    <!-- </li> -->
+  <%# end %>
+<%# end %>
+
