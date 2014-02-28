@@ -1,3 +1,19 @@
+// 
+
+function dynamicSort(property) {
+    var sortOrder = 1;
+    if(property[0] === "-") {
+        sortOrder = -1;
+        property = property.substr(1);
+    }
+    return function (a,b) {
+        var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
+        return result * sortOrder;
+    }
+}
+
+
+
 var Content = Backbone.Model.extend({
 
 
@@ -30,7 +46,6 @@ var ContentView = Backbone.View.extend({
     return this
   }
 
-
 })
 
 
@@ -51,20 +66,21 @@ var ContentListView = Backbone.View.extend({
     return $('#content_list');
   },
 
-  render: function(){
-    var self = this
 
+  render: function(){
+    var self = this;
+    self.$el.html('')
     var contentList = this.collection.models;
-    _.each(contentList, function(content){
+    var sorted = contentList.sort(dynamicSort('-id'))
+    _.each(sorted, function(content){
     var contentView = new ContentView({ 
       model: content
     })
     contentView.render()
+    console.log(contentList)
     self.$el.append(contentView.$el)
     return this
   })
-
-
   }
 
 
@@ -91,8 +107,28 @@ var FormView = Backbone.View.extend({
   render: function(){
     this.$el.append(this.template({}));
     return this
-  }
+  },
 
+  events: {
+    'click #content_add_button' : 'createContent'
+  },
+
+  createContent: function(e){
+    e.preventDefault();
+    var $url = $('#content_url').val();
+    console.log($url)
+    contentListView.collection.create({
+      url: $url
+    });
+    this.resetInput();
+    contentListView.render();
+  },
+  
+
+  resetInput: function(){
+    $('#content_url').val("");
+
+  }
 
 
 })
