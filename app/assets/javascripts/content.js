@@ -72,23 +72,21 @@ var ContentListView = Backbone.View.extend({
   },
 
   render: function(){
-    
-     var self = this;
+    $.ajax({
+    url:"/contents",
+    method: 'GET',
+    dataType: 'json',
+    success: function(data) {
+      var source = $('#content_view').html(),
+        template = Handlebars.compile(source),
+        templateData = template(data);
 
-    self.$el.empty();
+        $('#all_content').append(templateData);
+    }
 
-    _.each(self.collection.models, function (content) {
-
-      var content_view = new ContentView ({
-        model: content
-      })
-
-      self.$el.append(content_view.$el)
-
-      self.views.push(content);
-
-    })
+  })
   }
+
 })
 
 var FormView = Backbone.View.extend({
@@ -140,7 +138,5 @@ $(function(){
   window.formView = new FormView();
   window.listView = new ContentListView({collection: list});
   window.listView.collection.fetch();
-
-  
 
 })

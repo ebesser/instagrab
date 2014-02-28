@@ -2,9 +2,10 @@ class ContentsController < ApplicationController
   before_action :current_user, only: [:create, :destroy]
 
   def index
-    contents = current_user.contents.all
+    my_contents = current_user.contents.all
+    # contents = Contents.where(user_id: current_user.id)
 
-    contents = { contents: contents }
+    contents = { contents: my_contents }
     render json: contents
   end
 
