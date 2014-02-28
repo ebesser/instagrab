@@ -5,8 +5,8 @@ class ContentsController < ApplicationController
     my_contents = current_user.contents.all
     # contents = Contents.where(user_id: current_user.id)
 
-    contents = { contents: my_contents }
-    render json: contents
+    # contents = { contents: my_contents }
+    render json: my_contents
   end
 
   def create

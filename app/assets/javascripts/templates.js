@@ -1,8 +1,6 @@
-<script id ="content_view" type="text/template">
+<script id ="content_template" type="text/template">
   
-  {{#contents}}
-    <p>{{url}}</p>
-  {{/contents}}
+ <%= url %> 
 
 </script>
 
