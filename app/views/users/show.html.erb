@@ -1,0 +1,26 @@
+<%= javascript_include_tag "contents" %>
+
+
+<p><%= @user.name  %></p>
+<img style="height: 100px; width: 100px;" src=<%= @user.image %>>
+
+
+</div>
+
+<h1>Followers</h1>
+<% if @user.followers.any? %>
+  <% @user.followers.each do |follower| %>
+  <li><%= follower.name %></li>
+  <% end %>
+<% end %>
+
+<h1>Following</h1>
+<% if @user.followed_users.any? %>
+  <% @user.followed_users.each do |followed| %>
+  <li><%= followed.name %></li>
+  <% end %>
+<% end %>
+
+<% @contents.each do |content| %>
+<li><%= content.url %></li>
+<% end %>

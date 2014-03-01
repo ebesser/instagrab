@@ -1,6 +1,6 @@
-<%= javascript_include_tag "contents2" %>
+<%= javascript_include_tag "contents" %>
 
-<!-- The rails way to render the form -->
+<!-- The rails way to render the form for text-->
   <%#= form_for(@contents) do |f| %>
   <%#= f.text_area :url, placeholder: "Compose new post..." %>
   <%#= f.submit "Post"%>
@@ -27,20 +27,7 @@
   <% end %>
 <% end %>
 
+<h1>Your Stuff</h1>  
 <div id="content_list">
-  </div>
-
-  <!-- <h1>Posts</h1> -->
-<%# if current_user.contents.any? %>
-  <!-- <p>Number of Posts:  -->
-    <%#= current_user.contents.count  %>
-  <!-- </p> -->
-  <%# @content.each do |content| %>
-    <!-- <li> -->
-        <%#= content.url %>
-        <%#= content.created_at %>
-        <!-- <button>Delete</button> -->
-    <!-- </li> -->
-  <%# end %>
-<%# end %>
+</div>
 

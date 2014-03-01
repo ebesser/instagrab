@@ -1,4 +1,4 @@
-// 
+// Function to allow for dynamic sorting in JS
 
 function dynamicSort(property) {
     var sortOrder = 1;
@@ -13,6 +13,7 @@ function dynamicSort(property) {
 }
 
 
+// Content Backbone Begins
 
 var Content = Backbone.Model.extend({
 
@@ -44,8 +45,18 @@ var ContentView = Backbone.View.extend({
   render: function(){
     this.$el.html(this.template(this.model.attributes))
     return this
-  }
+  },
 
+  events: {
+  'click #content_delete_button' : 'deleteContent'
+  },
+
+  deleteContent: function(){
+    this.model.destroy({
+      url: '/contents/'+this.model.id
+    })
+    contentListView.collection.remove(this);
+  }
 })
 
 
@@ -55,6 +66,8 @@ var ContentListView = Backbone.View.extend({
 
     this.collection = new ContentCollection();
     this.listenTo(this.collection, "sync", this.render)
+    this.listenTo(this.collection, "remove", this.render)
+
 
 
     this.collection.fetch();
@@ -77,7 +90,7 @@ var ContentListView = Backbone.View.extend({
       model: content
     })
     contentView.render()
-    console.log(contentList)
+    // console.log(contentList)
     self.$el.append(contentView.$el)
     return this
   })
@@ -116,7 +129,7 @@ var FormView = Backbone.View.extend({
   createContent: function(e){
     e.preventDefault();
     var $url = $('#content_url').val();
-    console.log($url)
+    // console.log($url)
     contentListView.collection.create({
       url: $url
     });
@@ -149,6 +162,8 @@ var fetchCallback = function(collection){
     $('#all_content').append(html)
   })
 }
+
+// Content Backbone Ends
 
 $(function(){
 

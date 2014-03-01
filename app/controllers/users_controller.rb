@@ -15,5 +15,15 @@ class UsersController < ApplicationController
     render json: @users
   end
 
+  def show
+    user_id = params[:id].to_i
+      # if user_id = current_user.id
+      #   redirect_to '/'
+      # else
+      @user = User.find(user_id)
+      @contents = @user.contents
+      # end
+  end
+
 
 end

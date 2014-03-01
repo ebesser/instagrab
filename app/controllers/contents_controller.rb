@@ -20,8 +20,9 @@ class ContentsController < ApplicationController
   end
 
   def destroy
-    @contents.destroy
-    render json: @contents
+    @content = Content.find(params[:id])
+    @content.destroy
+    render json: {}
   end
 
   private

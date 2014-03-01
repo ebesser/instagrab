@@ -1,6 +1,5 @@
 <script id ="content_template" type="text/template">
-  
- <%= url %> 
+ <li><%= url %><button id="content_delete_button">delete</button></li> 
 
 </script>
 
