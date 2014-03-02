@@ -1,5 +1,5 @@
 <script id ="content_template" type="text/template">
- <div><%= url %><button id="content_delete_button">delete</button></div> 
+ <div><%= title %><button id="content_delete_button">delete</button></div> 
 <hr>
 </script>
 

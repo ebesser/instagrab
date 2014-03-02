@@ -10,8 +10,10 @@ class ContentsController < ApplicationController
   end
 
   def create
-    puts content_params
-    @contents = current_user.contents.build(content_params)
+    params = content_params
+    # This allows me to set the title of the url through the use of the Pismo Gem
+    params[:title] = Pismo[params[:url]].title
+    @contents = current_user.contents.build(params)
     @contents.save
     render json: @contents
   end
@@ -29,7 +31,7 @@ class ContentsController < ApplicationController
   private
 
     def content_params
-      params.require(:content).permit(:url, :grabbed_from_id, :received_from_id)
+      params.require(:content).permit(:url, :grabbed_from_id, :received_from_id, :title)
     end
 
     def correct_user
