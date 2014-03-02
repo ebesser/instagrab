@@ -122,7 +122,9 @@ var grabIt = function(){
       url: '/contents',
       dataType: 'json',
       method: 'post',
-      data: {url: $url, grabbed_from_id: userId},
+      data: { content:
+        {url: $url, grabbed_from_id: userId}
+      },
       success: function(){
         console.log('data')
       }
