@@ -29,6 +29,8 @@ gem 'jbuilder', '~> 1.2'
 gem 'devise'
 gem 'pry'
 gem 'faker'
+gem 'pismo'
+gem 'metainspector'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

@@ -1,6 +1,6 @@
 <script id ="content_template" type="text/template">
- <li><%= url %><button id="content_delete_button">delete</button></li> 
-
+ <div><%= url %><button id="content_delete_button">delete</button></div> 
+<hr>
 </script>
 
 <script id="content_form" type="text/template">
@@ -11,6 +11,6 @@
 </script>
 
 <script id ="followed_user_content_template" type="text/template">
- <li><span><%= url %></span><button class="grab_button">grab it</button></li> 
+ <div><span><%= url %></span><button class="grab_button">grab it</button></div> 
 
 </script>
