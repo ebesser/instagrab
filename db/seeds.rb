@@ -1,16 +1,9 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
 require 'faker'
 
 Content.delete_all
 User.delete_all
 
+# Seeding Users
 20.times do
       User.create(
         name:      Faker::Name.name,
@@ -20,6 +13,7 @@ User.delete_all
          )
 end
 
+# Giving some users content
 users = User.all(limit: 6)
   50.times do
     sentence = Faker::Lorem.sentence(5)
@@ -27,13 +21,13 @@ users = User.all(limit: 6)
   end
 
 
-
-  users = User.all
-  user  = users.first
-  followed_users = users[2..50]
-  followers      = users[3..40]
-  followed_users.each { |followed| user.follow!(followed) }
-  followers.each      { |follower| follower.follow!(user) }
+# Adding some relationships (follow/followed) to the db
+users = User.all
+user  = users.first
+followed_users = users[2..50]
+followers      = users[3..40]
+followed_users.each { |followed| user.follow!(followed) }
+followers.each      { |follower| follower.follow!(user) }
 
 
 

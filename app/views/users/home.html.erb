@@ -1,4 +1,4 @@
-<%= javascript_include_tag "contents" %>
+<%= javascript_include_tag "current_user_contents" %>
 
 <!-- The rails way to render the form for text-->
   <%#= form_for(@contents) do |f| %>
@@ -13,12 +13,7 @@
 
 </div>
 
-<h1>Followers</h1>
-<% if current_user.followers.any? %>
-  <% current_user.followers.each do |follower| %>
-  <li><%= follower.name %></li>
-  <% end %>
-<% end %>
+<h3><%= current_user.followers.count %> Followers</h3>
 
 <h1>Following</h1>
 <% if current_user.followed_users.any? %>

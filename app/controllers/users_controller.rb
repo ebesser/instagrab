@@ -12,18 +12,21 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    respond_to do |format|
+      format.html
     render json: @users
+  end
   end
 
   def show
     user_id = params[:id].to_i
-      # if user_id = current_user.id
-      #   redirect_to '/'
-      # else
-      @user = User.find(user_id)
-      @contents = @user.contents
-      # end
+    @user = User.find(user_id)
+    respond_to do |format|
+      format.html 
+      format.json { render json: @user.contents }
+    end
   end
+
 
 
 end

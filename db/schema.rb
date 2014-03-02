@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140227161527) do
+ActiveRecord::Schema.define(version: 20140301220711) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20140227161527) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "grabbed_from_id"
+    t.integer  "received_from_id"
   end
 
   add_index "contents", ["user_id", "created_at"], name: "index_contents_on_user_id_and_created_at", using: :btree

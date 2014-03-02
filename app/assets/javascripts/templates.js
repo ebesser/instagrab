@@ -9,3 +9,8 @@
     <button class= "btn btn-primary" id="content_add_button">Post</button>
   </form>
 </script>
+
+<script id ="followed_user_content_template" type="text/template">
+ <li><span><%= url %></span><button class="grab_button">grab it</button></li> 
+
+</script>

@@ -10,6 +10,7 @@ class ContentsController < ApplicationController
   end
 
   def create
+    puts content_params
     @contents = current_user.contents.build(content_params)
     @contents.save
     render json: @contents
@@ -28,7 +29,7 @@ class ContentsController < ApplicationController
   private
 
     def content_params
-      params.require(:content).permit(:url)
+      params.require(:content).permit(:url, :grabbed_from_id, :received_from_id)
     end
 
     def correct_user
