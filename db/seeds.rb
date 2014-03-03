@@ -17,7 +17,7 @@ end
 users = User.all(limit: 6)
   50.times do
     # sentence = Faker::Lorem.sentence(5)
-    users.each { |user| user.contents.create!(url: "http://stackoverflow.com/questions/258372/css-div-element-how-to-show-horizontal-scroll-bars-only") }
+    users.each { |user| user.contents.create!(url: "http://stackoverflow.com/questions/258372/css-div-element-how-to-show-horizontal-scroll-bars-only", title: "CSS div element - how to show horizontal scroll bars only?", favicon: "http://cdn.sstatic.net/stackoverflow/img/favicon.ico?v=5bcec08ba0c5") }
   end
 
 

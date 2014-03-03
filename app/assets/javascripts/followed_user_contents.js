@@ -12,6 +12,7 @@ function dynamicSort(property) {
     }
 }
 
+
 // Getting the individual user's id from the url
 var userId = window.location.pathname.split('/')[2];
 
@@ -135,6 +136,6 @@ var grabIt = function(){
 
 $(function(){
   window.contentListView = new ContentListView();
-  // Had to run this function after 1 second to let all of the content load before calling them
-  window.setTimeout(grabIt, 1000)
+  // Had to run this function after the page is fully loaded to let all of the content load before calling them
+  window.setTimeout(grabIt, 2000)
 })

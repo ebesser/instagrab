@@ -11,8 +11,9 @@ class ContentsController < ApplicationController
 
   def create
     params = content_params
-    # This allows me to set the title of the url through the use of the Pismo Gem
+    # This allows me to set the title and favicon of the url through the use of the Pismo Gem
     params[:title] = Pismo[params[:url]].title
+    params[:favicon] = Pismo[params[:url]].favicon || nil
     @contents = current_user.contents.build(params)
     @contents.save
     render json: @contents
@@ -31,7 +32,7 @@ class ContentsController < ApplicationController
   private
 
     def content_params
-      params.require(:content).permit(:url, :grabbed_from_id, :received_from_id, :title)
+      params.require(:content).permit(:url, :grabbed_from_id, :received_from_id, :title, :favicon)
     end
 
     def correct_user

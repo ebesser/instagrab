@@ -1,28 +1,26 @@
 <%= javascript_include_tag "current_user_contents" %>
+<%= javascript_include_tag "dragdrop" %>
 
-<!-- The rails way to render the form for text-->
-  <%#= form_for(@contents) do |f| %>
-  <%#= f.text_area :url, placeholder: "Compose new post..." %>
-  <%#= f.submit "Post"%>
-  <%# end %>
+
 <img style="height: 100px; width: 100px;" src=<%= current_user.image %>>
+
 <p><%= current_user.name  %></p>
 
-
-<div id="form_container">
-
-</div>
-
-<h3><%= current_user.followers.count %> Followers</h3>
-
-<h1>Following</h1>
 <% if current_user.followed_users.any? %>
-  <% current_user.followed_users.each do |followed| %>
-  <li><%= followed.name %></li>
-  <% end %>
+<ul class='side-nav'>
+  <li><%= current_user.followers.count %> Followers</li>
+        <li>Send To All Followers - this will send the content to each of the followers</li>
+        <% current_user.followed_users.each do |followed| %>
+          <li id='follower'><%= followed.name %></li>
+        <% end %>
+      </ul>
 <% end %>
 
+<div id='stuff'>
+<div id="form_container"></div>
 <h1>Your Stuff</h1>  
 <div id="content_list">
 </div>
+</div>
+
 
