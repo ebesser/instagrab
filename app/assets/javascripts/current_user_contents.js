@@ -12,7 +12,6 @@ function dynamicSort(property) {
     }
 }
 
-
 // Content Backbone Begins
 
 var Content = Backbone.Model.extend({
@@ -44,7 +43,32 @@ var ContentView = Backbone.View.extend({
 
   render: function(){
     this.$el.html(this.template(this.model.attributes))
-    this.draggable();
+    // Begin draggable code on render
+    this.$el.draggable({
+      revert: true,
+       // Once the dragging starts, we decrease the opactiy of other items
+      // Appending a class as we do that with CSS
+      drag: function () {
+        $(this).addClass("active");
+        $(this).closest(".content_box").addClass("active");
+      },
+
+      // Removing the CSS classes once dragging is over.
+      stop: function () {
+        $(this).removeClass("active").closest(".content_box").removeClass("active");
+        },
+
+      // Increases dragged item's opacity 
+      opacity: 0.35,
+      // Slowly reverts the dragged item back into position
+      revertDuration: 1500,
+      // Allows the user to auto-scroll while dragging item
+      scroll: true
+
+
+    });
+    // debugger
+    // End of draggable code on render
     return this
   },
 
@@ -166,9 +190,50 @@ var fetchCallback = function(collection){
 
 // Content Backbone Ends
 
+
+// Begin shareIt functions - shares url/content with droppable user
+var shareIt = function(event){
+
+console.log(event)
+   // $.ajax({
+   //    url: '/contents',
+   //    dataType: 'json',
+   //    method: 'post',
+   //    data: { content:
+   //      {received_from: CU.id}
+   //    },
+   //    success: function(){
+   //      console.log(data)
+   //    }
+   //  })
+
+}
+// End shareIt Function
+
+
+
+// Droppable Users begins
+var droppable = function(){
+var followersElement = $(".follower")
+console.log(followersElement);
+// Making each user's div droppable
+  $(".follower").each(function(index, follower){
+    $(follower).droppable({
+      drop: shareIt,
+      hoverClass: "hoverdrop",
+      tolerance: "pointer"
+    });
+  })
+
+}
+
+// Droppable names ends
+
 $(function(){
 
   window.formView = new FormView().render()
   window.contentListView = new ContentListView();
+  window.setTimeout(droppable, 2000)
+
 
 })

@@ -3,7 +3,6 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
 
 html {
   min-height:100%;
-  position:relative
 }
 
 body {
@@ -19,17 +18,17 @@ div {
 }
 
 .content_box {
-  height: 150px;
-  width:250px;
+  height: 200px;
+  width:200px;
   border: 1px solid black;
   display: inline-block;
   float: left;
   margin: 10px;
+  padding: 4px;
 }
 
 .content_box:active {
-    color: #fff;
-    background-color: #EE5757;
+    background-color: lightblue;
 }
 
 .side-nav {
@@ -37,6 +36,7 @@ div {
   margin: 0;
   height: 100%;
   float: right;
+  /*position: relative;*/
 }
 
 #stuff {
@@ -44,5 +44,16 @@ div {
 }
 
 #unfollow_user_button {
+  background-color: red;
+}
+
+.follower {
+  height: 300px;
+  width: 300px;
+
+  border: 1px solid black;
+}
+
+.hoverdrop {
   background-color: red;
 }

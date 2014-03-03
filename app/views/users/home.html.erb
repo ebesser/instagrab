@@ -1,5 +1,5 @@
 <%= javascript_include_tag "current_user_contents" %>
-<%= javascript_include_tag "dragdrop" %>
+
 
 
 <img style="height: 100px; width: 100px;" src=<%= current_user.image %>>
@@ -14,7 +14,7 @@
   <li><%= current_user.followed_users.count %> Followers</li>  
     <li>Send To All Followers - this will send the content to each of the followers</li>
       <% current_user.followed_users.each do |followed| %>
-        <li id='follower'><%= followed.name %></li>
+        <li class='follower'><a href="/users/<%= followed.id %>"><%= followed.name %></a></li>
         <% end %>
       </ul>
 <% end %>

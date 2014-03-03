@@ -1,10 +1,13 @@
 <script id ="content_template" type="text/template">
+  <a target="_blank" href=<%= url %>>
   <div class='content_box'>
     <% if (favicon) { %>
      <div><img src=<%= favicon %> /><div>
     <% } %>
     <div>
-      <p><%= title %><p><button id="content_delete_button">delete</button>
+      <p><%= title %><p>
+    </a>
+      <button id="content_delete_button">delete</button>
     </div> 
   </div>
 </script>
