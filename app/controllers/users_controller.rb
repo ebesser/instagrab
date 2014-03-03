@@ -13,6 +13,14 @@ class UsersController < ApplicationController
   def index
     @users = User.where.not(id: current_user.id).all
     @relationships = Relationship.all
+    # Determining if the current_user 'follows' another user to determinte whether the button should read "follow" or "unfollow"
+    @users.each do |user|
+      if @relationships.where(follower_id: current_user.id, followed_id: user.id).count > 0
+        user[:followed] = true
+      else
+        user[:followed] = false
+      end
+    end
     respond_to do |format|
       format.html
       format.json { render json: @users }

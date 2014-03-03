@@ -1,21 +1,5 @@
-
-// All relationships displayed through AJAX call
-var relationships = function(){
-
-   $.ajax({
-    url: '/relationships',
-    dataType: 'json',
-    method: 'get',
-    success: function(data){
-    console.log(data)
-    return data
-   }
-  })
-
-}
-
 // Function creations a new relationship with the current user being the follower and the clicked user being the following user
-var createRelationships = function(currentUser, followingUser){
+var createRelationship = function(currentUser, followingUser){
   $.ajax({
     url: '/relationships',
     dataType: 'json',
@@ -30,6 +14,26 @@ var createRelationships = function(currentUser, followingUser){
       console.log("relationship added")
     }
   })
+}
+
+// Function deletes a relationship between current user and other user (unfollow)
+var deleteRelationship = function(currentUser, followingUser){
+
+  $.ajax({
+    url: '/relationships/delete_relationship',
+    dataType: 'json',
+    method: 'post',
+    data: { 
+      relationship: {
+       follower_id: currentUser,
+       followed_id: followingUser
+      }
+    },
+    success: function(){
+      console.log("relationship deleted")
+    }
+  })
+
 }
 
 
@@ -60,6 +64,7 @@ var UserView = Backbone.View.extend({
 
   render: function(){
     this.$el.html(this.template(this.model.attributes))
+
     return this
   },
 
@@ -68,15 +73,17 @@ var UserView = Backbone.View.extend({
   'click #unfollow_user_button' : 'unfollowUser'
   },
 
+  // Follows a user and re-renders the ListView
   followUser: function(){
-    createRelationships(CU.id, this.model.id);
-    console.log(CU.id, this.model.id);  
-    relationships;  
+    createRelationship(CU.id, this.model.id);
+    console.log(CU.id, this.model.id);
+    new UserListView(); 
   },
-
+  // UnFollows a user and re-renders the ListView
   unfollowUser: function(){
-    
-  }
+    deleteRelationship(CU.id, this.model.id);
+    console.log(CU.id, this.model.id);  
+    new UserListView();  }
 })
 
 
@@ -85,8 +92,7 @@ var UserListView = Backbone.View.extend({
   initialize: function(){
 
     this.collection = new UserCollection();
-    this.listenTo(this.collection, "sync", this.render)
-
+    this.listenTo(this.collection, "sync", this.render);
 
     this.collection.fetch();
 

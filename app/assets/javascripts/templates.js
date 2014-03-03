@@ -27,6 +27,11 @@
 </script>
 
 <script id="all_users_template">
-<%= name %><button id='follow_user_button'>follow</button>
+<%= name %>
+<% if (followed === false) { %>
+<button id='follow_user_button'>follow</button>
+<% } else { %>
+<button id='unfollow_user_button'>unfollow</button>
+<% } %>
 </script>
 

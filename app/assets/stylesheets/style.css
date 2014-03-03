@@ -42,3 +42,7 @@ div {
 #stuff {
   width: 80%;
 }
+
+#unfollow_user_button {
+  background-color: red;
+}

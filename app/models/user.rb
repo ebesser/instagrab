@@ -29,11 +29,5 @@ class User < ActiveRecord::Base
     relationships.find_by(followed_id: other_user.id).destroy
   end
 
-  def get_followers
-    # current_user
-    # Getting all of the users except for the current user so he cannot follow himself
-    @users = User.where.not(id: current_user.id).all
-    @relationships = Relationship.all
-  end
 
 end

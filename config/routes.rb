@@ -11,6 +11,8 @@ Instagrab::Application.routes.draw do
 
     post '/relationships' => 'relationships#create'
 
+    post '/relationships/delete_relationship' => 'relationships#delete_relationship'
+
     resources :contents, only: [:create, :destroy, :new]
 
     # followers/followed routes
