@@ -11,11 +11,14 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    @users = User.where.not(id: current_user.id).all
+    @relationships = Relationship.all
     respond_to do |format|
       format.html
-    render json: @users
-  end
+      format.json { render json: @users }
+    end
+
+    # add a key of relationship that is a boolean to see if there is a relationship. pass this through an ajax call and then see if there is a relationship
   end
 
   def show

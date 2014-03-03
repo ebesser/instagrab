@@ -127,7 +127,7 @@ var grabIt = function(){
         {url: $url, grabbed_from_id: userId}
       },
       success: function(){
-        console.log('data')
+        console.log(data)
       }
     })
   });

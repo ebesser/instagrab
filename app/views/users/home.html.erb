@@ -8,10 +8,13 @@
 
 <% if current_user.followed_users.any? %>
 <ul class='side-nav'>
+ <h1>Followers</h1> 
   <li><%= current_user.followers.count %> Followers</li>
-        <li>Send To All Followers - this will send the content to each of the followers</li>
-        <% current_user.followed_users.each do |followed| %>
-          <li id='follower'><%= followed.name %></li>
+ <h1>Following</h1>   
+  <li><%= current_user.followed_users.count %> Followers</li>  
+    <li>Send To All Followers - this will send the content to each of the followers</li>
+      <% current_user.followed_users.each do |followed| %>
+        <li id='follower'><%= followed.name %></li>
         <% end %>
       </ul>
 <% end %>

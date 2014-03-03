@@ -22,7 +22,11 @@
 <% if (favicon) { %>
   <div><img src=<%= favicon %> /><div>
 <% } %>
-// Added the hidden span so that I could grab the url within my AJAX calls for the grab it functionality to work
- <div><%= title %><span style="display: none; visibility: hidden;"><%= url %></span><button class="grab_button">grab it</button></div> 
+<div><%= title %><span style="display: none; visibility: hidden;"><%= url %></span><button class="grab_button">grab it</button></div> 
 
 </script>
+
+<script id="all_users_template">
+<%= name %><button id='follow_user_button'>follow</button>
+</script>
+
