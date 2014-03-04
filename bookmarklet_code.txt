@@ -2,7 +2,7 @@ Note: var user_id needs to be the current user's id, meaning when asking the use
 
 javascript:var url = document.URL; var user_id = 41;   
   $.ajax({     
-    url: 'http://fast-bastion-5258.herokuapp.com//api_test',     
+    url: 'http://fast-bastion-5258.herokuapp.com/api_test',     
     dataType: 'json',     
     method: 'get',     
     data: { content: {user_id: user_id, url: url} },     
