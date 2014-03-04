@@ -1,24 +1,6 @@
 <%= javascript_include_tag "current_user_contents" %>
 
 
-
-<img style="height: 100px; width: 100px;" src=<%= current_user.image %>>
-
-<p><%= current_user.name  %></p>
-
-<% if current_user.followed_users.any? %>
-<ul class='side-nav'>
- <h1>Followers</h1> 
-  <li><%= current_user.followers.count %> Followers</li>
- <h1>Following</h1>   
-  <li><%= current_user.followed_users.count %> Followers</li>  
-    <li>Send To All Followers - this will send the content to each of the followers</li>
-      <% current_user.followed_users.each do |followed| %>
-        <li class='follower'><span style="display: none; visibility: hidden;"><%= followed.id %></span><a href="/users/<%= followed.id %>"><%= followed.name %></a></li>
-        <% end %>
-      </ul>
-<% end %>
-
 <div id='stuff'>
 <div id="form_container"></div>
 <h1>Your Stuff</h1>  

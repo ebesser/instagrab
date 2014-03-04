@@ -14,7 +14,7 @@
 
 <script id="content_form" type="text/template">
 <form>
-    <input type="text" id="content_url" placeholder="Content Goes Here..." />
+    <input type="text" id="content_url" placeholder="Enter a URL here..." />
     <button class= "btn btn-primary" id="content_add_button">Post</button>
   </form>
 </script>

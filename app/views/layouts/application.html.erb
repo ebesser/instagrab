@@ -14,30 +14,48 @@
 <% end %>
 <!-- Put navigation here -->
   <nav class="top-bar" data-topbar>
-        <ul class='title-area'>
+        <ul>
          <li class="name">
-          <h1 style="font-size:40px;"><a href="/">Instagrab</a></h1>
+          <h1 style="font-size:70px; margin-top: 20px;"><a href="/">instaGrab</a></h1>
          </li>
         </ul>
         <% if user_signed_in? %>
-          <section class="top-bar-section">
-           <ul class='right'>
-              <li><a href="/users">Connect</li></a>
-              <li><a href="/"><%= current_user.name %></li></a>
+           <ul class='nav-items'>
+             <li class='nav-item'><a href="/"><%= current_user.name %></li></a> I
+              <li class='nav-item'><a href="/users">Connect</li></a> I
                 <% if user_signed_in? %>
-              <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+              <li class='nav-item'><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
                 <% else %>
                 <% end %>
            </ul>
             <% else %>
             <% end %>
-          </section>
       </nav>
 
 <!-- End navigation here -->
 
 
- 
+<% if current_user %>
+<div class='side_nav_div'>
+  <ul class='side-nav'>
+   <h1>Followers</h1> 
+   <% if current_user.followed_users.any? %>
+    <li><%= current_user.followed_users.count %> Followers</li>  
+    <li><img style="height: 100px; width: 100px;" src=<%= current_user.image %>></li>
+      <% current_user.followed_users.each do |followed| %>
+        <li class='follower'>
+          <span style="display: none; visibility: hidden;"><%= followed.id %></span>
+          <a href="/users/<%= followed.id %>"><%= followed.name %></a>
+        </li>
+      <% end %>
+    <% else %>
+        <a href="/users">No Connections? Add Some!</a>
+    <% end %>
+   </ul>
+ </div>
+<% end %>
+
+
 <div id='main-container'>
 <%= yield %>
 <%= render text: File.read("app/assets/javascripts/templates.js").html_safe %>

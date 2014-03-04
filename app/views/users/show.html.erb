@@ -3,15 +3,6 @@
 <p><%= @user.name  %></p>
 <img style="height: 100px; width: 100px;" src=<%= @user.image %>>
 
-<h3><%= @user.followers.count %> Followers</h3>
-
-<h1>Following</h1>
-<% if @user.followed_users.any? %>
-  <% @user.followed_users.each do |followed| %>
-  <li><%= followed.name %></li>
-  <% end %>
-<% end %>
-
 <h1><%= @user.name %>'s Stuff</h1>
 <div id="content_list"></div>
 
