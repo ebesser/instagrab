@@ -47,9 +47,9 @@ development:
 #   database: Instagrab_test
 #   pool: 5
 
-# production:
-#   adapter: postgresql
-#   encoding: unicode
-#   database: Instagrab_production
-#   pool: 5
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: Instagrab_production
+  pool: 5
 
