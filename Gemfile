@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+  source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'devise'
 gem 'pry'
 gem 'faker'
+gem 'rake'
 gem 'pismo'
 gem 'metainspector'
 gem 'rails_12factor', group: :production
