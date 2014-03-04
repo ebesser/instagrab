@@ -30,7 +30,7 @@ gem 'devise'
 gem 'pry'
 gem 'faker'
 gem 'rake'
-gem 'foundation'
+gem 'foundation-rails'
 gem 'pismo'
 
 gem 'metainspector'
