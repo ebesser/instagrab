@@ -39,6 +39,23 @@ class ContentsController < ApplicationController
     render json: Content.all
   end
 
+  def api_handler
+    headers['Access-Control-Allow-Origin'] = '*'
+    headers['Access-Control-Expose-Headers'] = 'ETag'
+    headers['Access-Control-Allow-Methods'] = 'GET, POST, PATCH, PUT, DELETE, OPTIONS, HEAD'
+    headers['Access-Control-Allow-Headers'] = '*,x-requested-with,Content-Type,If-Modified-Since,If-None-Match'
+    headers['Access-Control-Max-Age'] = '86400'
+    puts "-------------------------------------"
+    puts params
+    params = content_params
+    user = content_params[:user_id]
+    # This allows me to set the title and favicon of the url through the use of the Pismo Gem
+    params[:title] = Pismo[params[:url]].title
+    params[:favicon] = Pismo[params[:url]].favicon || nil
+    Content.create(params)
+    render json: { messaage: 'works'}
+  end
+
   private
 
     def content_params
@@ -50,7 +67,5 @@ class ContentsController < ApplicationController
       rescue
         redirect_to root_url
     end
-
-
 
 end
