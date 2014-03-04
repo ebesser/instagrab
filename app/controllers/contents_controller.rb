@@ -11,6 +11,12 @@ class ContentsController < ApplicationController
 
   def create
     params = content_params
+    # A slash at the end causes an error, the function below deletes a '/' if it finds it at the end of the url
+    if params[:url].last == '/'
+      array = params[:url].split("")
+      array.pop
+      params[:url] = array.join
+    end
     # This allows me to set the title and favicon of the url through the use of the Pismo Gem
     params[:title] = Pismo[params[:url]].title
     params[:favicon] = Pismo[params[:url]].favicon || nil
@@ -49,6 +55,12 @@ class ContentsController < ApplicationController
     puts params
     params = content_params
     user = content_params[:user_id]
+     # A slash at the end causes an error, the function below deletes a '/' if it finds it at the end of the url
+    if params[:url].last == '/'
+      array = params[:url].split("")
+      array.pop
+      params[:url] = array.join
+    end
     # This allows me to set the title and favicon of the url through the use of the Pismo Gem
     params[:title] = Pismo[params[:url]].title
     params[:favicon] = Pismo[params[:url]].favicon || nil

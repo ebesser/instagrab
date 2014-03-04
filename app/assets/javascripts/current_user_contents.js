@@ -154,7 +154,7 @@ var FormView = Backbone.View.extend({
   createContent: function(e){
     e.preventDefault();
     var $url = $('#content_url').val();
-    // console.log($url)
+    console.log($url)
     contentListView.collection.create({
       url: $url
     });

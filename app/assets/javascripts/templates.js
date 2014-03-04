@@ -2,10 +2,10 @@
   <a target="_blank" href=<%= url %>>
   <div class='content_box'>
     <% if (favicon) { %>
-     <div><img src=<%= favicon %> /><div>
+     <div><img class='my_favicon' src=<%= favicon %> /><div>
     <% } %>
     <div>
-      <p><%= title %><p>
+      <p class='content_title'><%= title %><p>
     </a>
       <button id="content_delete_button">delete</button>
     </div> 
@@ -32,9 +32,9 @@
 <script id="all_users_template">
 <%= name %>
 <% if (followed === false) { %>
-<button id='follow_user_button'>follow</button>
+<button id='follow_user_button'>friend</button>
 <% } else { %>
-<button id='unfollow_user_button'>unfollow</button>
+<button id='unfollow_user_button'>unfriend</button>
 <% } %>
 </script>
 

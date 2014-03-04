@@ -13,35 +13,37 @@
   </script>
 <% end %>
 <!-- Put navigation here -->
-  <nav class="top-bar" data-topbar>
-        <ul>
+     <header>
+      <!-- <div class="fixed"> -->
+      <nav class="top-bar" data-topbar>
+        <ul class='title-area'>
          <li class="name">
           <h1 style="font-size:70px; margin-top: 20px;"><a href="/">instaGrab</a></h1>
          </li>
         </ul>
         <% if user_signed_in? %>
-           <ul class='nav-items'>
-             <li class='nav-item'><a href="/"><%= current_user.name %></li></a> I
-              <li class='nav-item'><a href="/users">Connect</li></a> I
-                <% if user_signed_in? %>
-              <li class='nav-item'><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
-                <% else %>
-                <% end %>
-           </ul>
-            <% else %>
-            <% end %>
+          <ul class="nav_items">
+            <li class='nav-item'><a href="/"><%= current_user.name %></li></a> I 
+            <li class='nav-item'><a href="/users">Connect</li></a> I 
+            <li class='nav-item'><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+          </ul>
+        <% end %>
+     
       </nav>
+    <!-- </div> -->
+
+    </header>
 
 <!-- End navigation here -->
 
 
 <% if current_user %>
+<div class='side_container'>
 <div class='side_nav_div'>
   <ul class='side-nav'>
-   <h1>Followers</h1> 
    <% if current_user.followed_users.any? %>
-    <li><%= current_user.followed_users.count %> Followers</li>  
-    <li><img style="height: 100px; width: 100px;" src=<%= current_user.image %>></li>
+   <li class='profile_picture'><img style="height: 100px; width: 100px;" src=<%= current_user.image %>></li>
+    <h1><%= current_user.followed_users.count %> Followed </h1>  
       <% current_user.followed_users.each do |followed| %>
         <li class='follower'>
           <span style="display: none; visibility: hidden;"><%= followed.id %></span>
@@ -53,6 +55,7 @@
     <% end %>
    </ul>
  </div>
+</div>
 <% end %>
 
 

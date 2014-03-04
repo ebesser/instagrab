@@ -11,45 +11,41 @@ body {
   width: 100%;
 }
 
+
 div {
   color: green;
 }
 
+
 .top-bar {
    background-color: #351845;
    height: 80px;
-   /*position: fixed;*/
-   /*z-index: 10;*/
    margin-top: 0;
+   /*position: fixed;*/
 }
 
-.top-bar-section {
-   background-color: none;
-   float: right;
-
+.nav_items {
+  /*float: right;*/
+  margin-left: 70%;
+  /*margin-right: 1%;*/
+  color: white;
+  font-size: 20px;
+  margin-top: 30px;
 }
 
-.name {
-  text-align: center;
-  display: inline;
-
+.nav-item a {
+ color: white;
+ font-size: 25px;
+ bottom: 0;
 }
 
-.nav-items {
-     
-   float: left;
-   display: inline;
-   list-style-type: none;
-   font-size: 20px;
-   margin: auto;
-}
+
+
 .top-bar ul {
   margin-top: 20px;
 }
 
-.nav-item a {
- color: #18112e;
-}
+
 
 .nav-item a:hover {
   color: #5555eb;
@@ -62,6 +58,35 @@ div {
   /*font-weight: bold;*/
 
 }
+
+
+.side_nav_div {
+  height: 2500px;
+  float:right;
+  width: 15%;
+  position: absolute;
+  overflow: scroll;
+}
+
+ul.side-nav {
+  float: right;
+  background-color: #351845;
+  z-index: 20;
+  /*position: relative;*/
+  width: 100%;
+  height: 100%
+}
+
+#stuff {
+  width: 85%;
+  margin-left: 15%;
+}
+
+
+.profile_picture {
+  text-align: center;
+}
+
 #main-container {
   margin-top: 70px;
   margin-left: 3%;
@@ -70,12 +95,13 @@ div {
 
 .content_box {
   height: 200px;
-  width:200px;
+  width:270px;
   border: 1px solid black;
   display: inline-block;
   float: left;
-  margin: 10px;
+  margin: 15px;
   position: relative;
+  background-color: #a279e0;
   
 }
 
@@ -83,23 +109,39 @@ div {
     background-color: #593759;
 }
 
-.side_nav_div {
-  height: 130%;
-  float:right;
-  width: 20%;
-}
-
-ul.side-nav {
-  float: right;
-  background-color: #591159;
-  z-index: 20;
-  /*position: relative;*/
+#content_delete_button {
+  /*margin-left: 23%;*/
   width: 100%;
-  height: 100%
+  text-align: center;
+  margin: 0;
+  bottom: 0;
+  position: absolute;
+  height: 55px;
+  font-size: 25px;
 }
 
-#stuff {
-  width: 75%;
+.my_favicon {
+  height: 40px;
+  width: 40px;
+}
+
+.content_title {
+  font-size: 20px;
+  text-align: center;
+  color: white;
+}
+
+
+button {
+  background-color: #3c2c45;
+}
+
+button:hover {
+  background-color: #593759;
+}
+
+.btn {
+   background-color: #3c2c45;
 }
 
 #unfollow_user_button {
@@ -111,34 +153,25 @@ ul.side-nav {
   font-size: 25px;
 }
 
-#content_delete_button {
-  /*margin-left: 23%;*/
-  width: 100%;
-  text-align: center;
-  margin: 0;
-  bottom: 0;
-  position: absolute;
-}
+
 
 .follower {
-
-
   border: 1px solid black;
 }
 
 .hoverdrop {
-  background-color: #351845;
+  background-color: red;
 }
 
-button {
-  background-color: #3c2c45
+.favicon {
+  width: 100%;
+  height: 
 }
 
-button:hover {
-  background-color: #593759;
-}
 
 #content_url {
   height: 60px;
   font-size: 30px;
+  /*margin-top: 100px;*/
 }
+

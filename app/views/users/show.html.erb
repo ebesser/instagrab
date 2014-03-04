@@ -1,8 +1,9 @@
 <%= javascript_include_tag "followed_user_contents" %>
 
-<p><%= @user.name  %></p>
+<div id='stuff'>
+  <p><%= @user.name  %></p>
 <img style="height: 100px; width: 100px;" src=<%= @user.image %>>
 
 <h1><%= @user.name %>'s Stuff</h1>
 <div id="content_list"></div>
-
+</div>
