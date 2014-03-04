@@ -17,3 +17,5 @@
 //= require backbone
 //= require handlebars
 
+$(function(){ $(document).foundation(); });
+
