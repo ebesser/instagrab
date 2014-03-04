@@ -74,7 +74,7 @@ Instagrab::Application.configure do
   config.active_support.deprecation = :notify
 
 
-  config.action_dispatch.x_sendfile_header = ‘X-Accel-Redirect’
+  # config.action_dispatch.x_sendfile_header = ‘X-Accel-Redirect’
   # Disable automatic flushing of the log to improve performance.
   # config.autoflush_log = false
 
