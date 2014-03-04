@@ -31,6 +31,7 @@ gem 'pry'
 gem 'faker'
 gem 'pismo'
 gem 'metainspector'
+gem 'rails_12factor', group: :production
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

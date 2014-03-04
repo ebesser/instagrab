@@ -199,7 +199,7 @@ var user_id = parseInt(event.target.children[0].innerHTML);
 console.log(user_id)
 var url = dragged_thing.draggable.children().attr('href')
 console.log(url)
-
+// Writing the dragged content's information to the dropped user
    $.ajax({
       url: '/contents/share_it',
       dataType: 'json',
