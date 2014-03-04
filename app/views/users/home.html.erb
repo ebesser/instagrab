@@ -14,7 +14,7 @@
   <li><%= current_user.followed_users.count %> Followers</li>  
     <li>Send To All Followers - this will send the content to each of the followers</li>
       <% current_user.followed_users.each do |followed| %>
-        <li class='follower'><a href="/users/<%= followed.id %>"><%= followed.name %></a></li>
+        <li class='follower'><span style="display: none; visibility: hidden;"><%= followed.id %></span><a href="/users/<%= followed.id %>"><%= followed.name %></a></li>
         <% end %>
       </ul>
 <% end %>

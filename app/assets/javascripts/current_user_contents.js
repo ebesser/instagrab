@@ -192,20 +192,25 @@ var fetchCallback = function(collection){
 
 
 // Begin shareIt functions - shares url/content with droppable user
-var shareIt = function(event){
+var shareIt = function(event, dragged_thing){
 
-console.log(event)
-   // $.ajax({
-   //    url: '/contents',
-   //    dataType: 'json',
-   //    method: 'post',
-   //    data: { content:
-   //      {received_from: CU.id}
-   //    },
-   //    success: function(){
-   //      console.log(data)
-   //    }
-   //  })
+// Getting information from the location in which the draggable was dropped into
+var user_id = parseInt(event.target.children[0].innerHTML);
+console.log(user_id)
+var url = dragged_thing.draggable.children().attr('href')
+console.log(url)
+
+   $.ajax({
+      url: '/contents/share_it',
+      dataType: 'json',
+      method: 'post',
+      data: { content:
+        {url: url, user_id: user_id, received_from_id: CU.id}
+      },
+      success: function(){
+        console.log('shared')
+      }
+    })
 
 }
 // End shareIt Function

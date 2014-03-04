@@ -7,6 +7,8 @@ Instagrab::Application.routes.draw do
 
     get '/contents' => 'contents#index'
 
+    post '/contents/share_it' => 'contents#share_it'
+
     get '/relationships' => 'relationships#index'
 
     post '/relationships' => 'relationships#create'
