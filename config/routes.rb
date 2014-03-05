@@ -5,6 +5,8 @@ Instagrab::Application.routes.draw do
 
     get '/users' => 'users#index'
 
+    get '/bookmark' => 'users#bookmarklet'
+
     get '/contents' => 'contents#index'
 
     post '/contents/share_it' => 'contents#share_it'

@@ -1,6 +1,6 @@
 Note: var user_id needs to be the current user's id, meaning when asking the user to copy this code into a bookmark, the system must provide the user with his or her id
 
-javascript:var url = document.URL; var user_id = 41;   
+javascript:var url = document.URL; var user_id = 61;   
   $.ajax({     
     url: 'http://fast-bastion-5258.herokuapp.com/api_test',     
     dataType: 'json',     

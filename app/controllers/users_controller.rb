@@ -38,6 +38,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def bookmarketlet
+    respond_to do |format|
+      format.html 
+      format.json { render json: @user.contents }
+    end
+  end
+
 
 
 end

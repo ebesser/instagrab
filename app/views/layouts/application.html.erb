@@ -23,9 +23,11 @@
         </ul>
         <% if user_signed_in? %>
           <ul class="nav_items">
-            <li class='nav-item'><a href="/"><%= current_user.name %></li></a> I 
-            <li class='nav-item'><a href="/users">Connect</li></a> I 
-            <li class='nav-item'><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+            <li class='nav-item'><a href="/">Home</li></a> I 
+            <li class='nav-item'><a href="/users">Find Friends</li></a> I 
+            <li class='nav-item'><a href="/bookmark">Get The Bookmark!</li></a> I 
+            <li class='nav-item'><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li> 
+        
           </ul>
         <% end %>
      
@@ -42,16 +44,16 @@
 <div class='side_nav_div'>
   <ul class='side-nav'>
    <% if current_user.followed_users.any? %>
-   <li class='profile_picture'><img style="height: 100px; width: 100px;" src=<%= current_user.image %>></li>
-    <h1><%= current_user.followed_users.count %> Followed </h1>  
+   <li class='profile_picture'><img style="height: 100px; width: 100px;" src=<%= current_user.image %>></li> 
+   <h1 id='share_it_text'>Share It By Dragging Links Over To Your Friends!</h1>
       <% current_user.followed_users.each do |followed| %>
         <li class='follower'>
           <span style="display: none; visibility: hidden;"><%= followed.id %></span>
-          <a href="/users/<%= followed.id %>"><%= followed.name %></a>
+          <a href="/users/<%= followed.id %>"><img class='friend_image' src=<%= followed.image %>><span class='follower_name'> <%= followed.name %></span></a>
         </li>
       <% end %>
     <% else %>
-        <a href="/users">No Connections? Add Some!</a>
+        <a style='color:white; text-align:center; font-size: 15' href="/users">No Connections :( Add Some!</a>
     <% end %>
    </ul>
  </div>
