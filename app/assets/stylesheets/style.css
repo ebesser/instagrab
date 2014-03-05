@@ -245,3 +245,35 @@ button:hover {
   padding-right: 10px;
 }
 
+
+#splash {
+  background-color: #351845;
+  height: 100%;
+  width: 100%;
+  margin:0;
+
+}
+
+#slogan {
+  color: white;
+  font-weight: bold;
+  font-size: 70px;
+  text-align: center;
+}
+
+#sign {
+  color: white;
+  margin-right: 25%;
+  margin-left: 25%;
+  margin-top: 50px;
+}
+
+#sign_in {
+  font-size: 30px;
+  color: white;
+  font-weight: bold;
+}
+
+label {
+  color: white;
+}

@@ -1,4 +1,6 @@
-<h2>Sign up</h2>
+<h1 id='slogan'>Add It. Share It. Grab It.</h1>
+<div id='sign'>
+<h2 id='sign_in'>Sign up</h2>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
@@ -10,7 +12,7 @@
   <%= f.email_field :email %></div>
 
   <div><%= f.label :image %><br />
-  <%= f.text_field :image %></div>
+  <%= f.text_field :image, placeholder: "please enter an image url" %></div>
 
   <div><%= f.label :password %><br />
   <%= f.password_field :password %></div>
@@ -22,3 +24,5 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+</div>
