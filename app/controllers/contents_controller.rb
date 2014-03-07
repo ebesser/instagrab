@@ -45,7 +45,9 @@ class ContentsController < ApplicationController
     render json: Content.all
   end
 
+  # This method handles the data coming in from the bookmarklet
   def api_handler
+
     headers['Access-Control-Allow-Origin'] = '*'
     headers['Access-Control-Expose-Headers'] = 'ETag'
     headers['Access-Control-Allow-Methods'] = 'GET, POST, PATCH, PUT, DELETE, OPTIONS, HEAD'
