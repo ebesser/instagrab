@@ -1,3 +1,6 @@
+// JS For Rendering Followed/Friend's Content With Grabit Functionality
+
+
 // Function to allow for dynamic sorting in JS
 
 function dynamicSort(property) {

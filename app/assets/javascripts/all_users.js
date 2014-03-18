@@ -1,3 +1,5 @@
+// JS To Display All Users on Platform With Follow/Unfollow Capability
+
 // Function creations a new relationship with the current user being the follower and the clicked user being the following user
 var createRelationship = function(currentUser, followingUser){
   $.ajax({

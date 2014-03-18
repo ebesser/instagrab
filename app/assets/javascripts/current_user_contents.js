@@ -1,4 +1,7 @@
-// Function to allow for dynamic sorting in JS
+// JS For Current User's Content With Delete Functionality and Drag and Drop ShareIt Functionality
+
+
+// Function to allow for dynamic sorting in JS. Can be called anywhere
 
 function dynamicSort(property) {
     var sortOrder = 1;
@@ -43,32 +46,32 @@ var ContentView = Backbone.View.extend({
 
   render: function(){
     this.$el.html(this.template(this.model.attributes))
-    // Begin draggable code on render
+// Begin draggable code on render
     this.$el.draggable({
       revert: true,
-       // Once the dragging starts, we decrease the opactiy of other items
-      // Appending a class as we do that with CSS
+// Once the dragging starts, we decrease the opactiy of other items
+// Appending a class as we do that with CSS
       drag: function () {
         $(this).addClass("active");
         $(this).closest(".content_box").addClass("active");
       },
 
-      // Removing the CSS classes once dragging is over.
+// Removing the CSS classes once dragging is over.
       stop: function () {
         $(this).removeClass("active").closest(".content_box").removeClass("active");
         },
 
-      // Increases dragged item's opacity 
+// Increases dragged item's opacity 
       opacity: 0.35,
       // Slowly reverts the dragged item back into position
       revertDuration: 1500,
-      // Allows the user to auto-scroll while dragging item
+// Allows the user to auto-scroll while dragging item
       scroll: true
 
 
     });
     // debugger
-    // End of draggable code on render
+// End of draggable code on render
     return this
   },
 
@@ -119,6 +122,7 @@ var ContentListView = Backbone.View.extend({
     self.$el.append(contentView.$el)
     return this
   })
+  
   }
 
 
