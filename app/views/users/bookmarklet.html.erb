@@ -1,7 +1,17 @@
 <div id='stuff'>
   <h1 class='tagline'>Copy And Paste Code This Code Into A New Bookmark</br><span style="font-size: 20px;">(Why Not Name It instaGrab)</span></h1></br>
-    <div id="bookmarklet_code">javascript:var url = document.URL; var user_id = <%= current_user.id  %>;   
-      $.ajax({     
+    <div id="bookmarklet_code">javascript:var url = document.URL; var user_id = <%= current_user.id  %>;var r = new XMLHttpRequest(); 
+      r.open("GET", "http://getinstagrab.herokuapp.com/api_test", true);
+      r.onreadystatechange = function () {
+       if (r.readyState != 4 || r.status != 200) return; 
+      console.log("snatched");
+      };
+      r.send({ content: {user_id: user_id, url: url} });
+
+
+
+      <!-- javascript:var url = document.URL; var user_id = <%= current_user.id  %>;    -->
+   <!--    $.ajax({     
         url: 'http://getinstagrab.herokuapp.com/api_test',     
         dataType: 'json',     
         method: 'get',     
@@ -9,7 +19,7 @@
         success: function(){       
           console.log('snatched')     
         }   
-      });
+      }); -->
     </div>
     <h1 style="font-size: 30px;" class='tagline'>Now You're All Set! Just Click The Bookmark Button On Any Page You'd Like To Save and instaGrab Will Save It Automatically!</h1>
 </div>
