@@ -12,7 +12,7 @@ With the use of a bookmarkelt, instaGrab is very similar to Instapaper and Pocke
 
 ##Technologies Used
 
-- RoR
+- Rails 4
 - JavaScript/jQuery
 - Backbone.js
 - Pismo Gem
