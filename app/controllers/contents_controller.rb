@@ -46,6 +46,8 @@ class ContentsController < ApplicationController
   end
 
   # This method handles the data coming in from the bookmarklet
+  # It allows for Cross-Origin Resrouce Sharing (CORS)
+  # Source: http://leopard.in.ua/2012/07/08/using-cors-with-rails/
   def api_handler
 
     headers['Access-Control-Allow-Origin'] = '*'
