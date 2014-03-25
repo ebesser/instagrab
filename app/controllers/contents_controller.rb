@@ -46,7 +46,7 @@ class ContentsController < ApplicationController
   end
 
   # This method handles the data coming in from the bookmarklet
-  # It allows for Cross-Origin Resrouce Sharing (CORS)
+  # It allows for Cross-Origin Resrouce Sharing (CORS) - take request from domain with different URL
   # Source: http://leopard.in.ua/2012/07/08/using-cors-with-rails/
   def api_handler
 
@@ -78,10 +78,10 @@ class ContentsController < ApplicationController
       params.require(:content).permit(:url, :user_id, :grabbed_from_id, :received_from_id, :title, :favicon)
     end
 
-    def correct_user
-      @contents = current_user.contents.find_by(id: params[:id])
-      rescue
-        redirect_to root_url
-    end
+    # def correct_user
+    #   @contents = current_user.contents.find_by(id: params[:id])
+    #   rescue
+    #     redirect_to root_url
+    # end
 
 end

@@ -6,7 +6,7 @@ class CreateContents < ActiveRecord::Migration
 
       t.timestamps
     end
-    # Listed user_id and created_at as an array since we want to recall them in reverse order or creation
+    # Listed user_id and created_at as an array since we want to recall them in reverse order of creation
     add_index :contents, [:user_id, :created_at]
   end
 end
