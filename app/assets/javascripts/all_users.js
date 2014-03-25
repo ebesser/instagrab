@@ -123,22 +123,23 @@ var UserListView = Backbone.View.extend({
 
 })
 
+// Unnecessary Backbone Code
 
-var templateFunc =  function(attrs){
-    var template_html = $('#user_template').html();
-    var template = _.template(template_html);
-    return template(attrs)
-}
+// var templateFunc =  function(attrs){
+//     var template_html = $('#user_template').html();
+//     var template = _.template(template_html);
+//     return template(attrs)
+// }
 
 
-var fetchCallback = function(collection){
+// var fetchCallback = function(collection){
   
-  var userList = collection.models;
-  _.each(userList, function(user){
-    var html = templateFunc(user.attributes)
-    $('#user_list').append(html)
-  })
-}
+//   var userList = collection.models;
+//   _.each(userList, function(user){
+//     var html = templateFunc(user.attributes)
+//     $('#user_list').append(html)
+//   })
+// }
 
 // User Backbone Ends
 
