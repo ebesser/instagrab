@@ -27,11 +27,5 @@ describe "User's Home page" do
       page.should have_content("Joe")
     end
 
-    # it 'displays all of my content', :js => true do
-    #   @current_user.contents.create(url: "test url", title: 'test title')
-    #   visit '/'
-    #   page.should have_content("test url")
-    #   page.should have_content("test title")
-    # end
 
 end
